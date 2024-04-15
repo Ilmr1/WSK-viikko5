@@ -12,4 +12,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* index.css */
 
+/* index.css */
+
+table {
+  border-collapse: collapse;
+
+}
+
+table, th, td {
+  border: 1px solid white;
+}
