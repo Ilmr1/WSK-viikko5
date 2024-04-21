@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Button from './UI/Button';
 
 const SingleView = (props) => {
   const {selectedItem, setSelectedItem} = props;
@@ -7,9 +8,11 @@ const SingleView = (props) => {
   };
   return (
     <>
-      <dialog open={selectedItem ? true : false}>
+      <dialog
+        open={!!selectedItem}
+      >
         <p>
-          <button onClick={handleClick}>Close</button>
+          <Button text="Close" handleClick={handleClick} />
         </p>
         {selectedItem && (
           <>
@@ -21,7 +24,10 @@ const SingleView = (props) => {
                 />
               </video>
             ) : (
-              <img src={selectedItem.filename} alt={selectedItem.title} />
+              <img
+                src={selectedItem.filename}
+                alt={selectedItem.title}
+              />
             )}
             <h2>{selectedItem.title}</h2>
             <p>{selectedItem.description}</p>
