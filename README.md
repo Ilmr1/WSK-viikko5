@@ -1,4 +1,4 @@
-Open [link text here](https://users.metropolia.fi/~ilmarie/wsk-routing/) to view it in the browser.
+Open [link text here](https://users.metropolia.fi/~ilmarie/custom-hooks/) to view it in the browser.
 - Ei jostain syystä näytä mitään
 # React + Vite
 
