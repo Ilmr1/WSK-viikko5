@@ -1,12 +1,12 @@
-
-import {useNavigate} from 'react-router-dom';
-import {useAuthentication} from '../hooks/ApiHooks';
+// LoginForm.jsx
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../hooks/ContextHooks.js';
 import useForm from '../hooks/formHooks';
 import Button from './UI/Button';
 
 const LoginForm = () => {
-  const {login} = useAuthentication();
-  const navigate = useNavigate();
+  useNavigate();
+  const { handleLogin } = useUserContext();
 
   const initValues = {
     username: '',
@@ -14,23 +14,14 @@ const LoginForm = () => {
   };
 
   const doLogin = async () => {
-    console.log('doLogin', inputs);
     try {
-      const userData = await login(inputs);
-      console.log('doLogin', userData);
-      localStorage.setItem('token', userData.token);
-      navigate('/');
-    } catch (error) {
-      alert(error.message);
+      await handleLogin(inputs);
+    } catch (e) {
+      alert(e.message);
     }
   };
 
-  const {handleSubmit, handleInputChange, inputs} = useForm(
-    doLogin,
-    initValues,
-  );
-
-  console.log(inputs);
+  const { handleSubmit, handleInputChange, inputs } = useForm(doLogin, initValues);
 
   return (
     <>
